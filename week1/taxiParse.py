@@ -18,7 +18,7 @@ def main():
 
 
     if len(sys.argv) != 3: #file name is first arg, expecting another for filename
-        raise Exception("Unexpected command line argument. Usage: python taxiParse.py (init OR modify) myfilepath")
+        raise Exception("Unexpected command line argument. Usage: python taxiParse.py (init OR modify OR addtable) myfilepath")
     else:
         action = str(sys.argv[1])
 
@@ -27,22 +27,25 @@ def main():
         col, dat = process_parquet(pq_file_path)
 
         if action == "init":
-            table = initiate_database(eng, "Rides", col)
+            table = add_table(eng, "Rides", col)
         elif action == "modify":
-            table = modify_database(eng, "Rides")
+            table = modify_table(eng, "Rides")
+        elif action == "addtable":
+            table_name = str(input("Enter table name: "))
+            table = add_table(eng, table_name, col) 
         else:
-            raise Exception("Invalid Action. Must be init OR modify.  Usage: python taxiParse.py [init OR modify] myfilepath")
+            raise Exception("Invalid Action. Must be init OR modify OR addtable. Usage: python taxiParse.py [init OR modify OR addtable] myfilepath")
         
-        insert_data(eng, table, dat, 50000)
+        insert_data(eng, table, dat, batch_size= min(50000, len(dat)) )
 
-def initiate_database(engine, table_name, columns):
+def add_table(engine, table_name, columns):
     metadata = sqa.MetaData()
     table = sqa.Table(table_name, metadata, *columns)
     metadata.create_all(engine)
 
     return table
 
-def modify_database(engine, table_name):
+def modify_table(engine, table_name):
     metadata = sqa.MetaData()
     table = sqa.Table(table_name, metadata, autoload_with=engine)
 
@@ -84,7 +87,7 @@ def insert_data(engine, table, data, batch_size):
     with engine.begin() as connection:
         for start in range(0, data_size, batch_size):
             end = start + batch_size
-            batch = data[start:end]
+            batch = data[start:end] #apparently this is safe even if size(data) < batch_size
 
             connection.execute(table.insert(), batch)
             print(f"Batch inserted successfully, through record number {end}")
