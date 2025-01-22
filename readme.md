@@ -6,9 +6,13 @@
 - PostgreSQL Database
 - Docker Containerization
 - Terraform Infrastructure as Code
-- Google Cloud Platform
+- Intro to Google Cloud Platform
 
 ## Week 2 - Workflow Orchestration
+- Kestra for Automating Data Pipelines
+- Extract Transform Load (ETL) Pipelines
+- Data-Pipelines on Google Cloud Platform
+- Intro to BigQuery Cloud Warehousing
 
 ## Week 3 - Data Warehousing
 
