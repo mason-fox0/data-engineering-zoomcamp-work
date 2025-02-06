@@ -1,0 +1,54 @@
+1.   Within the execution for Yellow Taxi data for the year 2020 and month 12: what is the uncompressed file size (i.e. the output file yellow_tripdata_2020-12.csv of the extract task)?
+
+A    128.3 MB
+B    134.5 MB
+C    364.7 MB
+D    692.6 MB
+
+Answer: A
+
+
+2.    What is the rendered value of the variable file when the inputs taxi is set to green, year is set to 2020, and month is set to 04 during execution?
+
+A    {{inputs.taxi}}_tripdata_{{inputs.year}}-{{inputs.month}}.csv
+B    green_tripdata_2020-04.csv
+C    green_tripdata_04_2020.csv
+D    green_tripdata_2020.csv
+
+Answer: B
+
+3.    How many rows are there for the Yellow Taxi data for all CSV files in the year 2020?
+
+A    13,537.299
+B    24,648,499
+C    18,324,219
+D    29,430,127
+
+Answer: Critical kestra issues -- don't know 
+
+4.    How many rows are there for the Green Taxi data for all CSV files in the year 2020?
+
+A    5,327,301
+B    936,199
+C    1,734,051
+D    1,342,034
+
+Answer: Critical kestra issues -- don't know
+
+5.    How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
+
+A    1,428,092
+B    706,911
+C    1,925,152
+D    2,561,031
+
+Answer: C
+
+6.    How would you configure the timezone to New York in a Schedule trigger?
+
+A    Add a timezone property set to EST in the Schedule trigger configuration
+B    Add a timezone property set to America/New_York in the Schedule trigger configuration
+C    Add a timezone property set to UTC-5 in the Schedule trigger configuration
+D    Add a location property set to New_York in the Schedule trigger configuration
+
+Answer: B 
