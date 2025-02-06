@@ -1,5 +1,5 @@
 id: 05_gcp_setup
-namespace: zoomcamp
+namespace: datatalks.zoomcamp
 
 tasks:
   - id: create_gcs_bucket

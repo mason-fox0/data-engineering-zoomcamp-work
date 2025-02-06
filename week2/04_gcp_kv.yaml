@@ -1,5 +1,5 @@
 id: 04_gcp_kv
-namespace: zoomcamp
+namespace: datatalks.zoomcamp
 
 tasks:
   - id: gcp_creds

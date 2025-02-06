@@ -1,5 +1,5 @@
 id: 03_postgres_dbt
-namespace: zoomcamp
+namespace: datatalks.zoomcamp
 inputs:
   - id: dbt_command
     type: SELECT

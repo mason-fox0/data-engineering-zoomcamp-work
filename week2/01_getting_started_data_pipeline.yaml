@@ -1,5 +1,5 @@
 id: 01_getting_started_data_pipeline
-namespace: zoomcamp
+namespace: datatalks.zoomcamp
 
 inputs:
   - id: columns_to_keep
